@@ -134,14 +134,15 @@ body.is-ready .header { opacity: 1; }
   opacity: 0;
   transition: opacity 1.4s ease-in-out;
   will-change: opacity, transform;
+  /* ズームは表示/非表示に関わらず常時ゆっくり継続させる。
+     opacity切り替え(is-active)と連動させると、非表示化した瞬間に
+     transformだけ即座にリセットされ「カクつく」ため、あえて分離している。 */
+  animation: kenburns 20s ease-in-out infinite alternate;
 }
-.hero__slide.is-active {
-  opacity: 1;
-  animation: kenburns 7s linear forwards;
-}
+.hero__slide.is-active { opacity: 1; }
 @keyframes kenburns {
   from { transform: scale(1) translateX(0); }
-  to   { transform: scale(1.07) translateX(-1.2%); }
+  to   { transform: scale(1.09) translateX(-1.4%); }
 }
 
 .hero__scrim {
