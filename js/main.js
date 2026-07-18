@@ -58,6 +58,12 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // 実際にスクロールした後だけ、上下2行のフェード順を反転させる
+  // （初回ロード時の上→下カスケードは変えず、スクロール操作後のみ適用）
+  window.addEventListener('scroll', () => {
+    document.body.classList.add('was-scrolled');
+  }, { once: true, passive: true });
+
   // --- スクロール出現 ---
   const reveals = [...document.querySelectorAll('.reveal')];
   const checkReveals = () => {
