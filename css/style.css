@@ -1,0 +1,466 @@
+/* ============================================
+   Kagu Rig — Landing Page
+   モノトーン × ミニマル × 淡い緑のアクセント
+   ============================================ */
+
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --gray: #9a9a9a;
+  --paper: #fafaf8;
+  --sage: #a9bfae;
+  --sage-deep: #7e9686;
+  --serif: "Noto Serif JP", serif;
+  --sans: "Noto Sans JP", sans-serif;
+  --en: "Cormorant Garamond", serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.9;
+  letter-spacing: .06em;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.sp { display: none; }
+
+/* ---------- イントロ ---------- */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #fdfdfc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s var(--ease);
+}
+.intro.is-leaving { opacity: 0; }
+.intro.is-done { display: none; }
+
+.intro__logo {
+  width: min(320px, 60vw);
+  opacity: 0;
+  transform: scale(.86);
+  animation: introLogo 2.2s var(--ease) .3s forwards;
+}
+@keyframes introLogo {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- ヘッダー ---------- */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 44px;
+  color: #fff;
+  opacity: 0;
+  transition: color .5s, background .5s, padding .5s, opacity 1.2s;
+}
+body.is-ready .header { opacity: 1; }
+
+.header__brand {
+  font-family: var(--en);
+  font-size: 20px;
+  letter-spacing: .34em;
+  font-weight: 400;
+}
+
+.header__nav { display: flex; gap: 36px; }
+.header__nav a {
+  font-family: var(--en);
+  font-size: 15px;
+  letter-spacing: .18em;
+  position: relative;
+  padding-bottom: 4px;
+}
+.header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .45s var(--ease);
+}
+.header__nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.header.is-solid {
+  color: var(--ink);
+  background: rgba(250, 250, 248, .88);
+  backdrop-filter: blur(10px);
+  padding: 18px 44px;
+}
+
+/* ---------- ヒーロー ---------- */
+
+.hero {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #0e0e0e;
+}
+
+.hero__slides, .hero__slide { position: absolute; inset: 0; }
+
+.hero__slide {
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease-in-out;
+  will-change: opacity, transform;
+}
+.hero__slide.is-active {
+  opacity: 1;
+  animation: kenburns 7s linear forwards;
+}
+@keyframes kenburns {
+  from { transform: scale(1) translateX(0); }
+  to   { transform: scale(1.07) translateX(-1.2%); }
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 8, 8, .52) 0%, rgba(8, 8, 8, .12) 40%, rgba(8, 8, 8, .18) 100%);
+}
+
+.hero__catch {
+  position: absolute;
+  left: clamp(24px, 6vw, 96px);
+  bottom: clamp(72px, 14vh, 140px);
+  color: #fff;
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(30px, 4.2vw, 54px);
+  letter-spacing: .22em;
+  line-height: 1.85;
+}
+.hero__catch-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 1.4s var(--ease), transform 1.4s var(--ease);
+}
+body.is-ready .hero__catch-line { opacity: 1; transform: none; }
+body.is-ready .hero__catch-line:nth-child(2) { transition-delay: .35s; }
+
+/* スライドカウンター */
+.hero__counter {
+  position: absolute;
+  left: clamp(24px, 6vw, 96px);
+  bottom: 34px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255, 255, 255, .85);
+  font-family: var(--en);
+  font-size: 14px;
+  letter-spacing: .14em;
+  opacity: 0;
+  transition: opacity 1.2s 1s;
+}
+body.is-ready .hero__counter { opacity: 1; }
+
+.hero__counter-bar {
+  width: 72px;
+  height: 1px;
+  background: rgba(255, 255, 255, .3);
+  position: relative;
+  overflow: hidden;
+}
+.hero__counter-bar i {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.hero__counter-bar i.is-run {
+  animation: barRun 3.2s linear forwards;
+}
+@keyframes barRun { to { transform: scaleX(1); } }
+
+/* Scrollインジケーター */
+.hero__scroll {
+  position: absolute;
+  right: clamp(24px, 5vw, 72px);
+  bottom: 34px;
+  color: rgba(255, 255, 255, .85);
+  font-family: var(--en);
+  font-size: 14px;
+  letter-spacing: .22em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 1.2s 1.2s;
+}
+body.is-ready .hero__scroll { opacity: 1; }
+
+.hero__scroll i {
+  width: 52px;
+  height: 1px;
+  background: rgba(255, 255, 255, .4);
+  position: relative;
+  overflow: hidden;
+}
+.hero__scroll i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  animation: scrollLine 2.2s var(--ease) infinite;
+}
+@keyframes scrollLine {
+  0%   { transform: translateX(-100%); }
+  55%  { transform: translateX(0); }
+  100% { transform: translateX(102%); }
+}
+
+/* ヒーローを通過したら文字・UIをフェードアウト（理念テキストとの重なり防止） */
+.hero.is-passed .hero__catch-line,
+.hero.is-passed .hero__counter,
+.hero.is-passed .hero__scroll {
+  opacity: 0 !important;
+  transition: opacity .7s ease;
+}
+
+.hero-spacer { height: 100svh; }
+
+/* ---------- コンテンツ共通 ---------- */
+
+.content { position: relative; z-index: 1; }
+
+.label {
+  font-family: var(--en);
+  font-size: 15px;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.label::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--sage);
+}
+.label--light { color: var(--sage); justify-content: center; }
+.label--light::before { background: var(--sage); }
+.label--sage { color: var(--sage); }
+.label--sage::before { background: var(--sage-deep); }
+
+.section-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(26px, 3.2vw, 40px);
+  letter-spacing: .14em;
+  line-height: 1.9;
+}
+.section-title--light { color: #f2f2ef; }
+
+/* スクロール出現 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
+}
+.reveal.is-on { opacity: 1; transform: none; }
+
+/* ---------- Philosophy ---------- */
+
+.philosophy {
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, .42), rgba(10, 10, 10, .68));
+  padding: 140px 24px;
+}
+
+.philosophy__title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(28px, 3.6vw, 46px);
+  letter-spacing: .2em;
+  margin-bottom: 56px;
+}
+
+.philosophy__text {
+  font-size: clamp(14px, 1.15vw, 16px);
+  font-weight: 300;
+  letter-spacing: .1em;
+  line-height: 2.6;
+  color: rgba(255, 255, 255, .88);
+}
+
+/* ---------- Service ---------- */
+
+.service {
+  background: var(--paper);
+  padding: clamp(120px, 14vw, 200px) clamp(24px, 7vw, 120px);
+}
+
+.service__inner { max-width: 1160px; margin: 0 auto; }
+
+.service__head { margin-bottom: clamp(90px, 10vw, 150px); }
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 100px);
+  margin-bottom: clamp(100px, 11vw, 170px);
+}
+.step:last-child { margin-bottom: 0; }
+.step--reverse { flex-direction: row-reverse; }
+
+.step__media {
+  flex: 1 1 52%;
+  overflow: hidden;
+}
+.step__media img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+  filter: grayscale(1);
+  transform: scale(1.02);
+  transition: filter 1.2s var(--ease), transform 1.6s var(--ease);
+}
+.step:hover .step__media img,
+.step.is-on .step__media img { filter: grayscale(0); }
+.step:hover .step__media img { transform: scale(1.06); }
+
+.step__body { flex: 1 1 48%; }
+
+.step__num {
+  font-family: var(--en);
+  font-weight: 300;
+  font-size: clamp(52px, 5.5vw, 76px);
+  color: var(--sage);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.step__title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(21px, 2vw, 27px);
+  letter-spacing: .12em;
+  line-height: 2;
+  margin-bottom: 24px;
+}
+
+.step__text {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  letter-spacing: .08em;
+  line-height: 2.3;
+}
+
+/* ---------- About ---------- */
+
+.about {
+  background: #151514;
+  color: #e9e9e6;
+  padding: clamp(120px, 13vw, 190px) clamp(24px, 7vw, 120px);
+}
+
+.about__inner { max-width: 860px; margin: 0 auto; }
+
+.about__table {
+  margin-top: 72px;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+}
+.about__table > div {
+  display: flex;
+  padding: 30px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, .14);
+  font-size: 14.5px;
+  letter-spacing: .1em;
+}
+.about__table dt {
+  flex: 0 0 180px;
+  color: var(--sage);
+  font-weight: 400;
+}
+.about__table dd { color: rgba(233, 233, 230, .92); }
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: #0e0e0d;
+  color: rgba(255, 255, 255, .6);
+  text-align: center;
+  padding: 90px 24px 48px;
+}
+.footer__brand {
+  font-family: var(--en);
+  font-size: 22px;
+  letter-spacing: .4em;
+  color: rgba(255, 255, 255, .9);
+  margin-bottom: 36px;
+}
+.footer__copy {
+  font-family: var(--en);
+  font-size: 12.5px;
+  letter-spacing: .18em;
+}
+
+/* ---------- レスポンシブ ---------- */
+
+@media (max-width: 768px) {
+  .sp { display: inline; }
+
+  .header { padding: 20px 22px; }
+  .header.is-solid { padding: 14px 22px; }
+  .header__brand { font-size: 17px; }
+  .header__nav { gap: 20px; }
+  .header__nav a { font-size: 13px; }
+
+  .hero__catch {
+    left: 24px;
+    bottom: 108px;
+    font-size: clamp(26px, 8vw, 34px);
+    letter-spacing: .16em;
+  }
+
+  .step, .step--reverse {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .about__table > div { flex-direction: column; gap: 6px; padding: 22px 4px; }
+  .about__table dt { flex: none; font-size: 12.5px; }
+}

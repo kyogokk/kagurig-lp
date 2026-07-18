@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kagu Rig — 憧れを、あなたの部屋に</title>
+  <meta name="description" content="Kagu Rig（カグリグ）— SNSで見つけた憧れの部屋を、あなたの部屋で再現する。部屋コーディネートシミュレーション・購買プラットフォーム。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- イントロ：ロゴがフェードイン＋ズームアップ -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <img class="intro__logo" src="assets/img/logo.png" alt="Kagu Rig">
+  </div>
+
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <a class="header__brand" href="#top">KAGU RIG</a>
+    <nav class="header__nav" aria-label="メインナビゲーション">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#service">Service</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- ファーストビュー：全画面フォトスライドショー（fixed） -->
+  <div class="hero" id="top" role="img" aria-label="こだわりの部屋の写真">
+    <div class="hero__slides" id="slides">
+      <div class="hero__slide is-active" style="background-image:url(assets/img/hero-1.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(assets/img/hero-2.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(assets/img/hero-3.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(assets/img/hero-4.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(assets/img/hero-5.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(assets/img/hero-6.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(assets/img/hero-7.jpg)"></div>
+    </div>
+    <div class="hero__scrim"></div>
+
+    <h1 class="hero__catch">
+      <span class="hero__catch-line">憧れを、</span>
+      <span class="hero__catch-line">あなたの部屋に。</span>
+    </h1>
+
+    <div class="hero__counter">
+      <span id="slideCurrent">01</span>
+      <span class="hero__counter-bar"><i id="slideBar"></i></span>
+      <span id="slideTotal">07</span>
+    </div>
+
+    <a class="hero__scroll" href="#philosophy">
+      <span>Scroll</span><i></i>
+    </a>
+  </div>
+
+  <!-- ヒーロー分のスクロール余白 -->
+  <div class="hero-spacer" aria-hidden="true"></div>
+
+  <main class="content">
+
+    <!-- 事業理念：写真の上に薄暗いレイヤーで重なる -->
+    <section class="philosophy" id="philosophy">
+      <div class="philosophy__inner reveal">
+        <p class="label label--light">Philosophy</p>
+        <h2 class="philosophy__title">すべての人が、<br class="sp">憧れを現実に。</h2>
+        <p class="philosophy__text">
+          SNSを眺めていて、ふと手が止まる瞬間があります。<br>
+          「この部屋、おしゃれだな」「こんな空間に住んでみたい」——<br>
+          誰もが一度は抱く、そんな小さな憧れ。<br><br>
+          Kagu Rig は、その憧れを<br class="sp">
+          一歩ずつ現実に近づけるためのサービスです。
+        </p>
+      </div>
+    </section>
+
+    <!-- サービス：白背景が写真を覆い隠しながら現れる -->
+    <section class="service" id="service">
+      <div class="service__inner">
+        <div class="service__head reveal">
+          <p class="label">Service</p>
+          <h2 class="section-title">憧れを再現する、<br class="sp">3つのステップ。</h2>
+        </div>
+
+        <div class="step reveal">
+          <div class="step__media">
+            <img src="assets/img/service-1.jpg" alt="部屋の3Dモデルのイメージ" loading="lazy">
+          </div>
+          <div class="step__body">
+            <p class="step__num">01</p>
+            <h3 class="step__title">部屋をスキャンして、<br>3Dモデルをつくる</h3>
+            <p class="step__text">
+              スマートフォンで部屋を撮影するだけ。<br>
+              あなたの部屋がそのまま、3Dモデルになります。
+            </p>
+          </div>
+        </div>
+
+        <div class="step step--reverse reveal">
+          <div class="step__media">
+            <img src="assets/img/service-2.jpg" alt="SNSの憧れの部屋のイメージ" loading="lazy">
+          </div>
+          <div class="step__body">
+            <p class="step__num">02</p>
+            <h3 class="step__title">SNSで見つけた憧れを、<br>インポートする</h3>
+            <p class="step__text">
+              気になった写真や動画を取り込み、<br>
+              予算と好みを入力するだけ。準備はそれだけです。
+            </p>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <div class="step__media">
+            <img src="assets/img/service-3.jpg" alt="コーディネートを再現したデスク環境" loading="lazy">
+          </div>
+          <div class="step__body">
+            <p class="step__num">03</p>
+            <h3 class="step__title">あなたの部屋で、<br>憧れを再現する</h3>
+            <p class="step__text">
+              部屋の間取りに合わせて、憧れのコーディネートを再現。<br>
+              憧れに近づく商品を選んで、そのまま購入できます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 会社概要 -->
+    <section class="about" id="about">
+      <div class="about__inner reveal">
+        <p class="label label--sage">About</p>
+        <h2 class="section-title section-title--light">Kagu Rig について</h2>
+        <dl class="about__table">
+          <div><dt>サービス名</dt><dd>Kagu Rig（カグリグ）</dd></div>
+          <div><dt>代表</dt><dd>加藤 恭悟</dd></div>
+          <div><dt>所属</dt><dd>名古屋工業大学 起業部 NaSH</dd></div>
+          <div><dt>事業内容</dt><dd>部屋コーディネートの3Dシミュレーション・<br class="sp">購買プラットフォームの企画・開発</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer__brand">KAGU RIG</p>
+      <p class="footer__copy">&copy; 2026 Kagu Rig</p>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
