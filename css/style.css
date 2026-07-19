@@ -636,6 +636,20 @@ body.is-ready .hero__scroll { opacity: 1; }
   color: var(--paper);
 }
 
+.contact__email {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: .08em;
+}
+.contact__email a {
+  border-bottom: 1px solid var(--sage-deep);
+  transition: color .3s;
+}
+.contact__email a:hover {
+  color: var(--sage-deep);
+}
+
 /* ---------- Storyページ ---------- */
 
 .page-header {
