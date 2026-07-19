@@ -493,6 +493,75 @@ body.is-ready .hero__scroll { opacity: 1; }
   line-height: 2.2;
 }
 
+/* ---------- Storyへの導線 ---------- */
+
+.story-link {
+  background: #151514;
+  padding: clamp(80px, 9vw, 130px) clamp(24px, 7vw, 120px);
+}
+
+.story-link__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(32px, 5vw, 80px);
+  color: #f2f2ef;
+}
+
+.story-link .label { color: var(--sage); }
+.story-link .label::before { background: var(--sage); }
+
+.story-link__title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(24px, 2.8vw, 36px);
+  letter-spacing: .16em;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.story-link__text {
+  font-size: 13.5px;
+  color: rgba(242, 242, 239, .68);
+  letter-spacing: .08em;
+  line-height: 2.2;
+}
+
+.story-link__arrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: none;
+  font-family: var(--en);
+  font-size: 15px;
+  letter-spacing: .22em;
+  color: rgba(242, 242, 239, .85);
+}
+.story-link__arrow i {
+  position: relative;
+  width: 64px;
+  height: 1px;
+  background: rgba(242, 242, 239, .35);
+  transition: width .6s var(--ease);
+}
+.story-link__arrow i::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  height: 1px;
+  background: currentColor;
+  transform: rotate(35deg);
+  transform-origin: right center;
+}
+.story-link__inner:hover .story-link__arrow i {
+  width: 104px;
+  background: rgba(242, 242, 239, .8);
+}
+
 /* ---------- FAQ ---------- */
 
 .faq {
@@ -741,6 +810,8 @@ body.is-ready .hero__scroll { opacity: 1; }
   .feature { padding-top: 0; }
 
   .targets__grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .story-link__inner { flex-direction: column; align-items: flex-start; }
 
   .timeline > div { flex-direction: column; gap: 8px; }
   .timeline dt { flex: none; }
