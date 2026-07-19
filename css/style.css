@@ -396,6 +396,276 @@ body.is-ready .hero__scroll { opacity: 1; }
   line-height: 2.3;
 }
 
+/* ---------- Feature（小物モデル化） ---------- */
+
+.feature {
+  background: var(--paper);
+  padding: 0 clamp(24px, 7vw, 120px) clamp(120px, 14vw, 200px);
+}
+
+.feature__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 100px);
+}
+
+.feature__media {
+  flex: 1 1 46%;
+  overflow: hidden;
+}
+.feature__media img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  width: 100%;
+}
+
+.feature__body { flex: 1 1 54%; }
+
+.feature__text {
+  margin-top: 40px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  letter-spacing: .08em;
+  line-height: 2.4;
+}
+
+/* ---------- Approach（ぜんぶは勧めない） ---------- */
+
+.approach {
+  background: #151514;
+  color: #f2f2ef;
+  text-align: center;
+  padding: clamp(110px, 12vw, 170px) 24px;
+}
+
+.approach__title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(26px, 3.4vw, 42px);
+  letter-spacing: .2em;
+  margin-bottom: 40px;
+}
+
+.approach__text {
+  font-size: clamp(13.5px, 1.1vw, 15px);
+  letter-spacing: .1em;
+  line-height: 2.6;
+  color: rgba(242, 242, 239, .82);
+}
+
+/* ---------- Targets（こんな人へ） ---------- */
+
+.targets {
+  background: var(--paper);
+  padding: clamp(120px, 14vw, 190px) clamp(24px, 7vw, 120px);
+}
+
+.targets__inner { max-width: 1160px; margin: 0 auto; }
+
+.targets__head { margin-bottom: clamp(70px, 8vw, 110px); }
+
+.targets__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(32px, 4vw, 64px);
+}
+
+.target {
+  border-top: 1px solid var(--sage);
+  padding-top: 36px;
+}
+
+.target__title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(18px, 1.6vw, 22px);
+  letter-spacing: .12em;
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+
+.target__text {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  letter-spacing: .07em;
+  line-height: 2.2;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq {
+  background: #f3f3f0;
+  padding: clamp(110px, 12vw, 170px) clamp(24px, 7vw, 120px);
+}
+
+.faq__inner { max-width: 860px; margin: 0 auto; }
+
+.faq__head { margin-bottom: clamp(56px, 6vw, 80px); }
+
+.faq__list { border-top: 1px solid rgba(26, 26, 26, .12); }
+
+.faq__item {
+  border-bottom: 1px solid rgba(26, 26, 26, .12);
+  padding: 34px 8px;
+}
+.faq__item dt {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: .08em;
+  line-height: 1.9;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 14px;
+}
+.faq__item dt::before {
+  content: "Q";
+  font-family: var(--en);
+  color: var(--sage-deep);
+  font-size: 18px;
+}
+.faq__item dd {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  letter-spacing: .07em;
+  line-height: 2.2;
+  padding-left: 32px;
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+  background: #eaefe9;
+  text-align: left;
+  padding: clamp(120px, 13vw, 180px) clamp(24px, 7vw, 120px);
+}
+
+.contact__inner { max-width: 860px; margin: 0 auto; }
+
+.contact__text {
+  margin-top: 40px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  letter-spacing: .08em;
+  line-height: 2.4;
+}
+
+.contact__btn {
+  display: inline-block;
+  margin-top: 48px;
+  padding: 18px 56px;
+  border: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: .18em;
+  transition: background .5s var(--ease), color .5s var(--ease);
+}
+.contact__btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- Storyページ ---------- */
+
+.page-header {
+  background: var(--paper);
+  padding: clamp(150px, 18vw, 240px) clamp(24px, 7vw, 120px) clamp(70px, 8vw, 110px);
+}
+.page-header__inner { max-width: 860px; margin: 0 auto; }
+
+.page-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(30px, 4vw, 50px);
+  letter-spacing: .18em;
+  line-height: 1.8;
+}
+
+.story {
+  background: var(--paper);
+  padding: 0 clamp(24px, 7vw, 120px) clamp(120px, 14vw, 190px);
+}
+.story__inner { max-width: 860px; margin: 0 auto; }
+
+.story__block { margin-bottom: clamp(80px, 9vw, 120px); }
+.story__block:last-child { margin-bottom: 0; }
+
+.story__heading {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 26px);
+  letter-spacing: .14em;
+  line-height: 1.9;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.story__heading::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--sage);
+  flex: none;
+}
+
+.story__text {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  letter-spacing: .08em;
+  line-height: 2.5;
+}
+.story__text + .story__text { margin-top: 28px; }
+.story__text strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.timeline { border-top: 1px solid rgba(26, 26, 26, .12); margin-top: 8px; }
+.timeline > div {
+  display: flex;
+  gap: 28px;
+  padding: 26px 4px;
+  border-bottom: 1px solid rgba(26, 26, 26, .12);
+}
+.timeline dt {
+  flex: 0 0 120px;
+  font-family: var(--en);
+  font-size: 15px;
+  letter-spacing: .1em;
+  color: var(--sage-deep);
+  padding-top: 2px;
+}
+.timeline dd {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  letter-spacing: .07em;
+  line-height: 2.1;
+}
+
+.story-cta {
+  background: #eaefe9;
+  text-align: center;
+  padding: clamp(90px, 10vw, 130px) 24px;
+}
+.story-cta__text {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(17px, 1.7vw, 21px);
+  letter-spacing: .14em;
+  line-height: 2.2;
+  margin-bottom: 40px;
+}
+
+/* 静的ページ用ヘッダー（ヒーローなし） */
+.header.is-static {
+  position: absolute;
+  color: var(--ink);
+  opacity: 1;
+}
+
 /* ---------- About ---------- */
 
 .about {
@@ -439,6 +709,22 @@ body.is-ready .hero__scroll { opacity: 1; }
   color: rgba(255, 255, 255, .9);
   margin-bottom: 36px;
 }
+.footer__nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px 34px;
+  margin-bottom: 36px;
+}
+.footer__nav a {
+  font-family: var(--en);
+  font-size: 13px;
+  letter-spacing: .16em;
+  color: rgba(255, 255, 255, .55);
+  transition: color .4s;
+}
+.footer__nav a:hover { color: rgba(255, 255, 255, .95); }
+
 .footer__copy {
   font-family: var(--en);
   font-size: 12.5px;
@@ -449,6 +735,15 @@ body.is-ready .hero__scroll { opacity: 1; }
 
 @media (max-width: 768px) {
   .sp { display: inline; }
+  .pc { display: none; }
+
+  .feature__inner { flex-direction: column; align-items: stretch; gap: 36px; }
+  .feature { padding-top: 0; }
+
+  .targets__grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .timeline > div { flex-direction: column; gap: 8px; }
+  .timeline dt { flex: none; }
 
   .header { padding: 20px 22px; }
   .header.is-solid { padding: 14px 22px; }

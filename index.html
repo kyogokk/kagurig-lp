@@ -23,7 +23,9 @@
     <nav class="header__nav" aria-label="メインナビゲーション">
       <a href="#philosophy">Philosophy</a>
       <a href="#service">Service</a>
+      <a href="story.html">Story</a>
       <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -128,6 +130,103 @@
       </div>
     </section>
 
+    <!-- 差別化：小物までモデル化 -->
+    <section class="feature" id="feature">
+      <div class="feature__inner">
+        <div class="feature__media reveal">
+          <img src="assets/img/feature-1.jpg" alt="デスクの上の小物（テラリウム）" loading="lazy">
+        </div>
+        <div class="feature__body reveal">
+          <p class="label">Feature</p>
+          <h2 class="section-title">卓上の小物まで、<br>3Dに。</h2>
+          <p class="feature__text">
+            これまでの部屋スキャンがモデル化できるのは、壁・床・大型の家具まで。<br><br>
+            Kagu Rig が目指すのは、その先です。モニターアームやキーボード、
+            ぬいぐるみやアクリルスタンドまで——デスクの上の小物までを3Dモデル化し、
+            自分の部屋の中で自由に配置を試せるようにします。<br><br>
+            現実の自分の部屋と、自分の持ち物で。<br>
+            "理想の部屋づくり"そのものを楽しめる体験をつくっています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 思想：ぜんぶは勧めない -->
+    <section class="approach">
+      <div class="approach__inner reveal">
+        <h2 class="approach__title">ぜんぶは、勧めません。</h2>
+        <p class="approach__text">
+          予算の中で、満足度の高い組み合わせだけを。<br>
+          買わなかったものは「まだ完成していない理想」として残り、<br class="pc">
+          あなたの部屋づくりは、少しずつ続いていきます。
+        </p>
+      </div>
+    </section>
+
+    <!-- こんな人へ -->
+    <section class="targets">
+      <div class="targets__inner">
+        <div class="targets__head reveal">
+          <p class="label">For You</p>
+          <h2 class="section-title">こんな人のための<br class="sp">サービスです。</h2>
+        </div>
+        <div class="targets__grid">
+          <div class="target reveal">
+            <h3 class="target__title">デスク環境を<br>極めたい人</h3>
+            <p class="target__text">モニターアーム、キーボード、ライティング。細部までこだわった自分だけの環境を作りたい。</p>
+          </div>
+          <div class="target reveal">
+            <h3 class="target__title">推しと暮らす部屋を<br>作りたい人</h3>
+            <p class="target__text">ぬいぐるみ、アクリルスタンド、フィギュア。大切なものの「見せ方」まで含めて部屋を作りたい。</p>
+          </div>
+          <div class="target reveal">
+            <h3 class="target__title">これから部屋づくりを<br>始める人</h3>
+            <p class="target__text">何から買えばいいか分からなくても大丈夫。憧れの一枚の写真から、部屋づくりを始められます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="faq__inner">
+        <div class="faq__head reveal">
+          <p class="label">FAQ</p>
+          <h2 class="section-title">よくある質問</h2>
+        </div>
+        <dl class="faq__list">
+          <div class="faq__item reveal">
+            <dt>3Dスキャンができる端末を持っていなくても使えますか？</dt>
+            <dd>使えます。部屋の写真からの解析・提案でフォローする設計です。3Dスキャンに対応した端末（LiDAR搭載のiPhoneなど）があれば、より精密な再現ができます。</dd>
+          </div>
+          <div class="faq__item reveal">
+            <dt>どんな商品を提案してくれますか？</dt>
+            <dd>特定のブランドやショップに縛られず、複数の店舗を横断して、予算と好みに合う商品を提案します。</dd>
+          </div>
+          <div class="faq__item reveal">
+            <dt>いつから使えますか？</dt>
+            <dd>現在開発中です。ヒアリングにご協力いただける方、リリース情報を受け取りたい方は、下のフォームからご連絡ください。</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="contact__inner reveal">
+        <p class="label">Contact</p>
+        <h2 class="section-title">ヒアリングに<br class="sp">ご協力ください。</h2>
+        <p class="contact__text">
+          Kagu Rig は現在、サービス開発中です。<br>
+          「話を聞いてもいいよ」という方、リリース情報を受け取りたい方は、<br class="pc">
+          フォームからご登録ください。
+        </p>
+        <!-- TODO: フォーム作成後、hrefをGoogleフォーム/フォームズのURLに差し替え、
+             「（準備中）」の表記を外す -->
+        <a class="contact__btn" href="#" aria-disabled="true">登録フォームへ（準備中）</a>
+      </div>
+    </section>
+
     <!-- 会社概要 -->
     <section class="about" id="about">
       <div class="about__inner reveal">
@@ -144,6 +243,13 @@
 
     <footer class="footer">
       <p class="footer__brand">KAGU RIG</p>
+      <nav class="footer__nav" aria-label="フッターナビゲーション">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#service">Service</a>
+        <a href="story.html">Story</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <p class="footer__copy">&copy; 2026 Kagu Rig</p>
     </footer>
 
