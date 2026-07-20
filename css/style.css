@@ -105,9 +105,7 @@ body.is-ready .header { opacity: 1; }
   display: block;
 }
 
-/* Contactアイコン：デスクトップはナビに「Contact」があるので隠す（モバイルのみ表示） */
-/* Contactアイコン：ナビの「Contact」と重複するが、アイコンの方が直感的に
-   伝わるため意図的に併置する。SNSとは別枠なので区切り線で分ける。 */
+/* Contactアイコン：ナビの「Contact」と意図的に併置（アイコンの方が直感的なため） */
 .header__contact-icon {
   padding-left: 15px;
   border-left: 1px solid currentColor;
@@ -168,9 +166,7 @@ body.is-ready .header { opacity: 1; }
   opacity: 0;
   transition: opacity 1.4s ease-in-out;
   will-change: opacity, transform;
-  /* ズームは表示/非表示に関わらず常時ゆっくり継続させる。
-     opacity切り替え(is-active)と連動させると、非表示化した瞬間に
-     transformだけ即座にリセットされ「カクつく」ため、あえて分離している。 */
+  /* ズームはopacity(is-active)と分離して常時継続——連動させると切替時にカクつく */
   animation: kenburns 20s ease-in-out infinite alternate;
 }
 .hero__slide.is-active { opacity: 1; }
@@ -205,9 +201,7 @@ body.is-ready .header { opacity: 1; }
 body.is-ready .hero__catch-line { opacity: 1; transform: none; }
 body.is-ready .hero__catch-line:nth-child(2) { transition-delay: .35s; }
 
-/* スクロールで理念セクションが下から重なってくる向きに合わせる：
-   一度でもスクロールしたら、以降は下の行(2行目)を先に・上の行(1行目)を後に
-   フェード/表示させる（初回ロード時の上→下カスケードとは向きを逆転） */
+/* スクロール後は下の行を先にフェード（下から重なる理念セクションと向きを合わせる） */
 body.was-scrolled .hero__catch-line:nth-child(1) { transition-delay: .3s; }
 body.was-scrolled .hero__catch-line:nth-child(2) { transition-delay: 0s; }
 
@@ -639,9 +633,7 @@ body.is-ready .hero__scroll { opacity: 1; }
 
 /* ---------- Contact ---------- */
 
-/* Contactへのアンカー着地位置。負の値でセクション頭より少し深く（約1.2cm）
-   スクロールさせ、上部の余白が広く見えるのを防ぐ。
-   ナビの「Contact」・ヘッダーの封筒アイコン双方に効く。 */
+/* アンカー着地をセクション頭より少し深くする（上余白が広く見えるのを防ぐ） */
 #contact { scroll-margin-top: -46px; }
 
 .contact {
@@ -1004,13 +996,11 @@ body.is-ready .hero__scroll { opacity: 1; }
   .header { padding: 20px 22px; }
   .header.is-solid { padding: 14px 22px; }
   .header__brand { font-size: 17px; }
-  /* モバイルはナビ項目を畳み、SNSリンクを優先表示。
-     ページ内移動はスクロール、Story等の導線は本文バンド／フッターで代替。 */
+  /* モバイルはナビを畳みSNSリンク優先（Story等の導線は本文バンド/フッターで代替） */
   .header__nav { display: none; }
   .header__left { width: 100%; }
   .header__social { margin-left: auto; gap: 18px; }
   .header__social svg { width: 19px; height: 19px; }
-  /* Contactアイコンをモバイルで表示。SNSとは別枠なので区切り線で分ける */
   .header__contact-icon { padding-left: 18px; }
 
   .hero__catch {

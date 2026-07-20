@@ -13,7 +13,6 @@
 
   const SLIDE_INTERVAL = 3200; // 写真の切り替え間隔(ms)
   let index = 0;
-  let timer = null;
 
   const pad = (n) => String(n + 1).padStart(2, '0');
   if (hasHero) total.textContent = pad(slides.length - 1);
@@ -35,7 +34,7 @@
 
   const startSlideshow = () => {
     runBar();
-    timer = setInterval(next, SLIDE_INTERVAL);
+    setInterval(next, SLIDE_INTERVAL);
   };
 
   // --- イントロ終了 → ヒーロー表示 ---
@@ -64,8 +63,7 @@
     onScroll();
   }
 
-  // 実際にスクロールした後だけ、上下2行のフェード順を反転させる
-  // （初回ロード時の上→下カスケードは変えず、スクロール操作後のみ適用）
+  // 初回スクロール後はキャッチコピー2行のフェード順を反転（CSS側 .was-scrolled 参照）
   window.addEventListener('scroll', () => {
     document.body.classList.add('was-scrolled');
   }, { once: true, passive: true });
