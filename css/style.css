@@ -18,7 +18,13 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* アンカー移動時、固定ヘッダーの下に見出しが隠れないようオフセットを確保。
+   （各セクションはもともと上パディングが大きいので大きな値は不要） */
+[id] { scroll-margin-top: 76px; }
+
+/* CSSのscroll-behavior:smoothは全プログラム的スクロールをアニメ化し、
+   直リンク(#hash)着地やアンカー移動を不安定にするため使わない。
+   スムーズさはJS側でアンカークリック時のみ behavior:'smooth' で付与する。 */
 
 body {
   font-family: var(--sans);
@@ -104,6 +110,9 @@ body.is-ready .header { opacity: 1; }
   height: 17px;
   display: block;
 }
+
+/* Contactアイコン：デスクトップはナビに「Contact」があるので隠す（モバイルのみ表示） */
+.header__contact-icon { display: none; }
 
 .header__brand {
   font-family: var(--en);
@@ -885,6 +894,12 @@ body.is-ready .hero__scroll { opacity: 1; }
   .header__left { width: 100%; }
   .header__social { margin-left: auto; gap: 18px; }
   .header__social svg { width: 19px; height: 19px; }
+  /* Contactアイコンをモバイルで表示。SNSとは別枠なので区切り線で分ける */
+  .header__contact-icon {
+    display: block;
+    padding-left: 18px;
+    border-left: 1px solid currentColor;
+  }
 
   .hero__catch {
     left: 24px;

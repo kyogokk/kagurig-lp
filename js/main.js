@@ -82,4 +82,30 @@
   };
   window.addEventListener('scroll', checkReveals, { passive: true });
   checkReveals();
+
+  // --- ページ内アンカーのスクロール ---
+  // scrollIntoView を使う（この構成では window.scrollTo/scrollY が不安定なため）。
+  // ヘッダーぶんのオフセットは CSS の [id]{scroll-margin-top} で確保。
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    const hash = a.getAttribute('href');
+    if (hash.length < 2) return; // 単なる "#" は無視
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(hash);
+      if (!target) return;
+      e.preventDefault();
+      // behavior:'smooth' は環境により無反応になるため instant で確実にジャンプ
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      history.pushState(null, '', hash);
+    });
+  });
+
+  // 直リンク／別ページ（story.html等）からの #hash 着地時も位置を補正する。
+  if (location.hash.length > 1) {
+    const target = document.querySelector(location.hash);
+    if (target) {
+      const jump = () => target.scrollIntoView({ block: 'start' });
+      requestAnimationFrame(jump);
+      window.addEventListener('load', jump, { once: true });
+    }
+  }
 })();
