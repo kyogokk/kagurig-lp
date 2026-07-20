@@ -808,6 +808,26 @@ body.is-ready .hero__scroll { opacity: 1; }
 }
 .footer__nav a:hover { color: rgba(255, 255, 255, .95); }
 
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  margin-bottom: 40px;
+}
+.footer__social a {
+  color: rgba(255, 255, 255, .55);
+  transition: color .4s var(--ease), transform .4s var(--ease);
+}
+.footer__social a:hover {
+  color: rgba(255, 255, 255, .95);
+  transform: translateY(-2px);
+}
+.footer__social svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
 .footer__copy {
   font-family: var(--en);
   font-size: 12.5px;
