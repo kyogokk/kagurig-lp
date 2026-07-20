@@ -639,6 +639,11 @@ body.is-ready .hero__scroll { opacity: 1; }
 
 /* ---------- Contact ---------- */
 
+/* Contactへのアンカー着地位置。負の値でセクション頭より少し深く（約1.5cm）
+   スクロールさせ、上部の余白が広く見えるのを防ぐ。
+   ナビの「Contact」・ヘッダーの封筒アイコン双方に効く。 */
+#contact { scroll-margin-top: -56px; }
+
 .contact {
   background: #eaefe9;
   text-align: left;
