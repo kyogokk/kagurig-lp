@@ -106,7 +106,12 @@ body.is-ready .header { opacity: 1; }
 }
 
 /* Contactアイコン：デスクトップはナビに「Contact」があるので隠す（モバイルのみ表示） */
-.header__contact-icon { display: none; }
+/* Contactアイコン：ナビの「Contact」と重複するが、アイコンの方が直感的に
+   伝わるため意図的に併置する。SNSとは別枠なので区切り線で分ける。 */
+.header__contact-icon {
+  padding-left: 15px;
+  border-left: 1px solid currentColor;
+}
 
 .header__brand {
   font-family: var(--en);
@@ -889,11 +894,7 @@ body.is-ready .hero__scroll { opacity: 1; }
   .header__social { margin-left: auto; gap: 18px; }
   .header__social svg { width: 19px; height: 19px; }
   /* Contactアイコンをモバイルで表示。SNSとは別枠なので区切り線で分ける */
-  .header__contact-icon {
-    display: block;
-    padding-left: 18px;
-    border-left: 1px solid currentColor;
-  }
+  .header__contact-icon { padding-left: 18px; }
 
   .hero__catch {
     left: 24px;
