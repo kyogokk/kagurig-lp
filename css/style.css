@@ -811,6 +811,8 @@ body.is-ready .hero__scroll { opacity: 1; }
   font-size: clamp(30px, 4vw, 50px);
   letter-spacing: .18em;
   line-height: 1.8;
+  /* 単語の途中で折れないように。折り返し位置は <wbr>/<br> で明示する */
+  word-break: keep-all;
 }
 
 .story {

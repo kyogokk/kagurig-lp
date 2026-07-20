@@ -15,5 +15,11 @@ window.NEWS_ITEMS = [
     title: '公式サイトを公開しました',
     image: 'assets/img/hero-2.jpg',
     url: 'news/2026-07-19-site-launch.html'
+  },
+  {
+    date: '2026-05-30T17:00',
+    title: 'Tongariビジネスプランコンテスト 準決勝に登壇しました',
+    image: 'assets/img/logo.png',
+    url: 'news/2026-05-30-tongari-semifinal.html'
   }
 ];
