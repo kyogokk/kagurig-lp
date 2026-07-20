@@ -879,10 +879,12 @@ body.is-ready .hero__scroll { opacity: 1; }
   .header { padding: 20px 22px; }
   .header.is-solid { padding: 14px 22px; }
   .header__brand { font-size: 17px; }
-  .header__nav { gap: 20px; }
-  .header__nav a { font-size: 13px; }
-  /* ヘッダー幅が足りないため、上部のSNSアイコンはモバイルで隠す（フッターに常設） */
-  .header__social { display: none; }
+  /* モバイルはナビ項目を畳み、SNSリンクを優先表示。
+     ページ内移動はスクロール、Story等の導線は本文バンド／フッターで代替。 */
+  .header__nav { display: none; }
+  .header__left { width: 100%; }
+  .header__social { margin-left: auto; gap: 18px; }
+  .header__social svg { width: 19px; height: 19px; }
 
   .hero__catch {
     left: 24px;
