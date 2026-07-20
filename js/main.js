@@ -82,4 +82,45 @@
   };
   window.addEventListener('scroll', checkReveals, { passive: true });
   checkReveals();
+
+  // --- News（データは js/news-data.js） ---
+  const newsList = document.getElementById('newsList');
+  if (newsList && Array.isArray(window.NEWS_ITEMS) && window.NEWS_ITEMS.length) {
+    // 1日以内→N時間前 / 1週間以内→N日前 / それ以降→yyyy/mm/dd
+    const formatDate = (dateStr) => {
+      const d = new Date(dateStr);
+      const diffMs = Date.now() - d.getTime();
+      const hours = Math.floor(diffMs / 3600000);
+      if (hours < 1) return 'たった今';
+      if (hours < 24) return hours + '時間前';
+      const days = Math.floor(hours / 24);
+      if (days <= 7) return days + '日前';
+      const pad = (n) => String(n).padStart(2, '0');
+      return d.getFullYear() + '/' + pad(d.getMonth() + 1) + '/' + pad(d.getDate());
+    };
+
+    newsList.innerHTML = window.NEWS_ITEMS.map((item) => `
+      <li class="news__item">
+        <a class="news__card" href="${item.url}"${item.external ? ' target="_blank" rel="noopener"' : ''}>
+          <span class="news__thumb"><img src="${item.image}" alt="" loading="lazy"></span>
+          <span class="news__title">${item.title}</span>
+          <time class="news__date" datetime="${item.date}">${formatDate(item.date)}</time>
+        </a>
+      </li>`).join('');
+
+    // 矢印で1カードぶんずつ横スクロール
+    const step = () => {
+      const card = newsList.querySelector('.news__item');
+      return card ? card.getBoundingClientRect().width + 28 : 320;
+    };
+    document.getElementById('newsPrev')?.addEventListener('click', () => {
+      newsList.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+    document.getElementById('newsNext')?.addEventListener('click', () => {
+      newsList.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+  } else if (newsList) {
+    // 記事ゼロならセクションごと隠す
+    document.getElementById('news').style.display = 'none';
+  }
 })();

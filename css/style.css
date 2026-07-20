@@ -689,7 +689,115 @@ body.is-ready .hero__scroll { opacity: 1; }
   color: var(--sage-deep);
 }
 
-/* ---------- Storyページ ---------- */
+/* ---------- News ---------- */
+
+.news {
+  background: var(--paper);
+  padding: clamp(110px, 12vw, 170px) 0 clamp(120px, 13vw, 180px);
+}
+
+.news__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 7vw, 120px);
+}
+
+.news__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(48px, 5vw, 72px);
+}
+
+.news__arrows { display: flex; gap: 12px; }
+.news__arrow {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(26, 26, 26, .25);
+  border-radius: 50%;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .4s var(--ease), color .4s var(--ease), border-color .4s;
+}
+.news__arrow svg { width: 18px; height: 18px; }
+.news__arrow:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* 横スクロールのカード列（スワイプ／矢印で遡れる） */
+.news__list {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;           /* Firefox */
+  padding-bottom: 8px;
+}
+.news__list::-webkit-scrollbar { display: none; }
+
+.news__item {
+  flex: 0 0 min(320px, 78vw);
+  scroll-snap-align: start;
+}
+
+.news__card { display: block; }
+
+.news__thumb {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 18px;
+}
+.news__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--ease);
+}
+.news__card:hover .news__thumb img { transform: scale(1.05); }
+
+.news__title {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: .08em;
+  line-height: 1.9;
+  margin-bottom: 10px;
+  transition: color .4s;
+}
+.news__card:hover .news__title { color: var(--sage-deep); }
+
+.news__date {
+  font-family: var(--en);
+  font-size: 13px;
+  letter-spacing: .12em;
+  color: var(--gray);
+}
+
+/* ---------- Storyページ・記事ページ ---------- */
+
+.article-date {
+  margin-top: 26px;
+  font-family: var(--en);
+  font-size: 14px;
+  letter-spacing: .14em;
+  color: var(--gray);
+}
+
+.article-link {
+  color: var(--sage-deep);
+  border-bottom: 1px solid var(--sage);
+}
 
 .page-header {
   background: var(--paper);
