@@ -774,6 +774,8 @@ body.is-ready .hero__scroll { opacity: 1; }
   line-height: 1.9;
   margin-bottom: 10px;
   transition: color .4s;
+  /* タイトルが1行でも2行分の高さを確保し、日付の縦位置をカード間で揃える */
+  min-height: 3.8em; /* 1.9(line-height) × 2行 */
 }
 .news__card:hover .news__title { color: var(--sage-deep); }
 
